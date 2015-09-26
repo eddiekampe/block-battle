@@ -2,3 +2,5 @@
 /.idea
 *.zip
 *.tar.gz
+*.pyc
+test_data
