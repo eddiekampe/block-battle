@@ -1,4 +1,4 @@
-from game.helper.output import Response
+from game.helper.output import Output
 
 
 class Settings(object):
@@ -17,6 +17,7 @@ class Settings(object):
         Minimalistic setting parser
         """
         if setting not in self._settings.keys():
-            Response.put("Could not parse setting {}: {}".format(setting, value))
+            Output.write("Could not parse setting {}: {}".format(setting, value))
 
+        Output.debug("Setting \"{}\": {}".format(setting, value))
         self._settings[setting] = value

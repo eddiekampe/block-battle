@@ -2,7 +2,7 @@ import sys
 
 from game.state import State
 from game.settings import Settings
-from game.helper.output import Response
+from game.helper.output import Output
 
 
 class Bot(object):
@@ -31,16 +31,14 @@ class Bot(object):
                 command = parts[0]
 
                 if command == "settings":
-                    # Store game settings
                     self._settings.update(setting=parts[1], value=parts[2])
 
                 elif command == "update":
-                    # Store game updates
-                    self._state.update(state=parts[1], value=parts[2])
+                    self._state.update(obj=parts[1], state=parts[2], value=parts[3])
 
                 elif command == "action":
                     # Take action
-                    Response.put("drop")
+                    Output.write("drop")
 
             except EOFError:
                 return
